@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react'
-import { Alert, Text, View } from 'react-native'
+import { Alert, View } from 'react-native'
 import { TodoContext } from '../../context'
 import { useTheme } from '../../hooks/useTheme'
 import { Button } from '../Button'
 import { Input } from '../Input'
 import { Logo } from '../Logo'
+import { ResumeLabel } from './ResumeLabel'
 import { styles } from './styles'
 import { HeaderProps } from './types'
-import { ResumeLabel } from './ResumeLabel'
 
 export function Header({ ...rest }: HeaderProps) {
   const [text, setText] = useState<string>('')

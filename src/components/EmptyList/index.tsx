@@ -10,6 +10,7 @@ export function EmptyList({ ...rest }: EmptyListProps) {
       onLayout={theme?.onLayout}
       style={{
         alignItems: 'center',
+        marginTop: 32,
       }}
       {...rest}
     >
