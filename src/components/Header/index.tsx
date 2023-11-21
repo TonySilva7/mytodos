@@ -43,7 +43,11 @@ export function Header({ ...rest }: HeaderProps) {
       </View>
       <View style={styles(theme?.theme)?.resumeContainer}>
         <ResumeLabel total={total} description="Criadas" titleColor="blue" />
-        <ResumeLabel total={done} description="Criadas" titleColor="purple" />
+        <ResumeLabel
+          total={done}
+          description="Concluídas"
+          titleColor="purple"
+        />
       </View>
     </View>
   )
