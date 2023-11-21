@@ -1,32 +1,33 @@
-import { StatusBar, TouchableOpacity } from 'react-native';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
-import { useTheme } from './src/hooks/useTheme';
-import { Logo } from './src/components/Logo';
-import { Input } from './src/components/Input';
-import { Button } from './src/components/Button';
+import { StatusBar, StyleSheet, View } from 'react-native'
+import { Body } from './src/components/Body'
+import { Divider } from './src/components/Divider'
+import { Header } from './src/components/Header'
+import { TodoProvider } from './src/context'
+import { useTheme } from './src/hooks/useTheme'
 
 export default function App() {
-  const  defTheme = useTheme();
+  const defTheme = useTheme()
 
   return (
-    <SafeAreaView style={styles.container} onLayout={defTheme?.onLayout} >
-      <StatusBar barStyle="light-content" backgroundColor="transparent" translucent />
-      <Logo />
-      <Input />
-      <Button>
-      <Text>+</Text>
-      </Button>
-      {/* <TouchableOpacity>
-        <Text>KKKK</Text>
-      </TouchableOpacity> */}
-    </SafeAreaView>
-  );
+    <View style={styles.container} onLayout={defTheme?.onLayout}>
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="transparent"
+        translucent
+      />
+      <TodoProvider>
+        <Header />
+        <Divider />
+        <Body />
+      </TodoProvider>
+    </View>
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: '#1a1a1a',
     alignItems: 'center',
   },
-});
+})

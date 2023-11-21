@@ -5,6 +5,7 @@ import {
   TouchableOpacityProps,
 } from 'react-native'
 import { ITheme, useTheme } from '../../hooks/useTheme'
+import Icon from '@expo/vector-icons/Ionicons'
 
 type IButton = TouchableOpacityProps
 
@@ -16,7 +17,7 @@ export function Button({ children, ...rest }: IButton) {
       onLayout={theme?.onLayout}
       {...rest}
     >
-      {children}
+      {children || <Icon name="add-circle-outline" size={24} color="white" />}
     </TouchableOpacity>
   )
 }
@@ -28,11 +29,10 @@ const styles = (theme?: ITheme) => {
         width: 52,
         height: 52,
         borderRadius: 8,
-        padding: 16,
         backgroundColor: theme.colors.blue,
         flexDirection: 'column',
         alignItems: 'center',
-        rowGap: 8,
+        justifyContent: 'center',
       },
     })
 

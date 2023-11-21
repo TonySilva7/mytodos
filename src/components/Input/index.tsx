@@ -1,4 +1,4 @@
-import { StyleSheet, TextInput, View, ViewProps, Text } from 'react-native'
+import { StyleSheet, TextInput, View, ViewProps } from 'react-native'
 import { ITheme, useTheme } from '../../hooks/useTheme'
 
 type InputProps = ViewProps & {
@@ -21,9 +21,6 @@ export function Input({ value, setValue, ...rest }: InputProps) {
         onChangeText={setValue}
         style={styles(theme?.theme)?.input}
       />
-      <Text style={styles(theme?.theme)?.error}>
-        Oops! Escreva algo no campo.
-      </Text>
     </View>
   )
 }
@@ -32,22 +29,18 @@ const styles = (theme?: ITheme) => {
   if (theme) {
     const style = StyleSheet.create({
       container: {
-        width: '100%',
-        padding: 16,
+        width: 271,
         flexDirection: 'column',
         alignItems: 'center',
         rowGap: 8,
       },
       input: {
         height: 54,
-        width: '100%',
+        width: 271,
         borderRadius: 12,
         backgroundColor: theme.colors.gray500,
         color: theme.colors.gray100,
         padding: 12,
-      },
-      error: {
-        color: theme.colors.danger,
       },
     })
 
