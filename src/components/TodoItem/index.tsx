@@ -1,16 +1,10 @@
-import { Alert, StyleSheet, Text, View, ViewProps } from 'react-native'
-import { ITheme, useTheme } from '../../hooks/useTheme'
 import Icon from '@expo/vector-icons/Ionicons'
 import { useContext } from 'react'
+import { Alert, Text, View } from 'react-native'
 import { TodoContext } from '../../context'
-
-export type ITodo = {
-  id: string
-  title: string
-  isCompleted: boolean
-}
-
-export type TodoItemProps = ViewProps & ITodo
+import { useTheme } from '../../hooks/useTheme'
+import { styles } from './styles'
+import { TodoItemProps } from './types'
 
 export function TodoItem({ id, title, isCompleted, ...rest }: TodoItemProps) {
   const theme = useTheme()
@@ -50,34 +44,4 @@ export function TodoItem({ id, title, isCompleted, ...rest }: TodoItemProps) {
       />
     </View>
   )
-}
-
-const styles = (theme?: ITheme, isCompleted?: boolean) => {
-  if (theme) {
-    const styles = StyleSheet.create({
-      container: {
-        width: 324,
-        height: 67,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        backgroundColor: theme.colors.gray500,
-        borderRadius: 12,
-        paddingHorizontal: 12,
-        paddingVertical: 12,
-        marginBottom: 8,
-        columnGap: 8,
-      },
-      title: {
-        color: isCompleted ? theme.colors.gray300 : theme.colors.gray100,
-        textDecorationLine: isCompleted ? 'line-through' : 'none',
-        fontSize: theme.fonts.sizes.medium,
-        flex: 1,
-        flexWrap: 'wrap',
-      },
-    })
-
-    return styles
-  }
-  return undefined
 }

@@ -1,13 +1,8 @@
-// import { PlusCircle } from 'phosphor-react-native'
-import {
-  StyleSheet,
-  TouchableOpacity,
-  TouchableOpacityProps,
-} from 'react-native'
-import { ITheme, useTheme } from '../../hooks/useTheme'
 import Icon from '@expo/vector-icons/Ionicons'
-
-type IButton = TouchableOpacityProps
+import { TouchableOpacity } from 'react-native'
+import { useTheme } from '../../hooks/useTheme'
+import { styles } from './styles'
+import { IButton } from './types'
 
 export function Button({ children, ...rest }: IButton) {
   const theme = useTheme()
@@ -20,23 +15,4 @@ export function Button({ children, ...rest }: IButton) {
       {children || <Icon name="add-circle-outline" size={24} color="white" />}
     </TouchableOpacity>
   )
-}
-
-const styles = (theme?: ITheme) => {
-  if (theme) {
-    const style = StyleSheet.create({
-      container: {
-        width: 52,
-        height: 52,
-        borderRadius: 8,
-        backgroundColor: theme.colors.blue,
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      },
-    })
-
-    return style
-  }
-  return undefined
 }

@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react'
-import { ITodo } from '../components/TodoItem'
+import { ITodo } from '../components/TodoItem/types'
 
 type ITodos = {
   todos: ITodo[]

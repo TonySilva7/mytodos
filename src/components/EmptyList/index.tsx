@@ -1,8 +1,7 @@
-import { Text, View, ViewProps } from 'react-native'
 import Icon from '@expo/vector-icons/Ionicons'
+import { Text, View } from 'react-native'
 import { useTheme } from '../../hooks/useTheme'
-
-type EmptyListProps = ViewProps
+import { EmptyListProps } from './types'
 
 export function EmptyList({ ...rest }: EmptyListProps) {
   const theme = useTheme()

@@ -1,10 +1,9 @@
-import { View, ViewProps } from 'react-native'
+import { useContext } from 'react'
+import { View } from 'react-native'
+import { TodoContext } from '../../context'
 import { EmptyList } from '../EmptyList'
 import { TodoList } from '../TodoList'
-import { useContext } from 'react'
-import { TodoContext } from '../../context'
-
-type BodyProps = ViewProps
+import { BodyProps } from './types'
 
 export function Body({ ...rest }: BodyProps) {
   const { todos } = useContext(TodoContext)
